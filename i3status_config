@@ -1,0 +1,21 @@
+clock {
+	format_time = "%H:%M:%S %Z"
+}
+
+volume_status {
+	cache_timeout = 1
+}
+
+order += "jw_net"
+order += "jw_cpu"
+order += "jw_mem"
+order += "jw_swap"
+order += "jw_disk"
+order += "clock"
+order += "date"
+
+#order += "volume_status"
+#order += "eth"
+#order += "wifi"
+#order += "keyboard_layout"
+

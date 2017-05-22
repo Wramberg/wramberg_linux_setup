@@ -1,2 +1,2 @@
-# JWLinuxSetup
-Just some random files I use in my linux setup
+# Wramberg Linux Setup
+Just some random files (including dots) I use in my linux setup.
