@@ -14,7 +14,7 @@ $inst i3lock
 
 # Filemanagers
 $inst ranger
-$inst thunar
+#$inst thunar
 
 # Automount
 $inst udiskie
@@ -32,6 +32,7 @@ $inst volumeicon-alsa
 $inst evince 
 
 # Set up i3 config link
+mkdir -p $HOME/.config/i3/
 ln -s $HOME/wramberg_linux_setup/i3_config $HOME/.config/i3/config
 
 echo "Done - remember:"
