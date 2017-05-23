@@ -188,7 +188,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id udiskie --tray
 
-# Start terminal on scratchpad
+# Start terminal intended for scratchpad
 exec --no-startup-id xfce4-terminal --title=scratchpad_term
 
 # Scratchpad stuff
