@@ -30,7 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec mate-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -189,7 +190,7 @@ exec --no-startup-id volumeicon
 exec --no-startup-id udiskie --tray
 
 # Start terminal intended for scratchpad
-exec --no-startup-id xfce4-terminal --title=scratchpad_term
+exec --no-startup-id mate-terminal --title="scratchpad_term"
 
 # Scratchpad stuff
 bindsym $mod+Shift+s move scratchpad
