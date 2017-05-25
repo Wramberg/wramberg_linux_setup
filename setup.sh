@@ -62,6 +62,9 @@ $inst mate-terminal
 # Install arandr
 $inst arandr
 
+# Install tmux
+$inst tmux
+
 # Remove nautilus
 sudo apt remove -y nautilus
 
@@ -72,9 +75,46 @@ sudo apt remove -y nautilus
 mkdir -p $HOME/.config/i3/
 ln -s $HOME/wramberg_linux_setup/i3_config $HOME/.config/i3/config
 
+# When quitting ranger cd into dir it was standing in
+cmd="alias ranger='ranger --choosedir=/tmp/.rangerdir;cd \$(cat /tmp/.rangerdir)'"
+title="#ranger-tweak"
+
+grep "$title" $HOME/.bashrc > /dev/null
+result=$?
+if [ $result -eq 1 ]; then
+    echo "" >> $HOME/.bashrc
+    echo $title >> $HOME/.bashrc
+    echo $cmd >> $HOME/.bashrc
+fi
+
+# Set editor to sublime text in bashrc
+editor="export EDITOR='subl -b'"
+title="#default-editor"
+
+grep "$title" $HOME/.bashrc > /dev/null
+result=$?
+if [ $result -eq 1 ]; then
+    echo "" >> $HOME/.bashrc
+    echo $title >> $HOME/.bashrc
+    echo $editor >> $HOME/.bashrc
+fi
+
+# Customize notify a bit - https://askubuntu.com/questions/128474/how-to-customize-on-screen-notifications
+sudo add-apt-repository ppa:leolik/leolik
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install libnotify-bin
+pkill notify-osd
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo apt-get update
+sudo apt-get install notifyosdconfig
+
+
 echo "Done - remember:"
-echo "lxappearance"
-echo "ranger bashrc hack"
+# echo "ranger bashrc hack"
+echo "lxappearance - widget clearlook"
+echo "lxappearance - icons"
 echo "volume controls keybindings in tray"
-echo "terminal colors"
-echo "terminal menu"
+echo "volume controls icon"
+echo "terminal - colors"
+echo "terminal - hide menu on startup"
