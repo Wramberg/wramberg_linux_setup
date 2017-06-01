@@ -158,9 +158,8 @@ set $linux_setup /home/jw/wramberg_linux_setup
 bar {
         status_command py3status -c $linux_setup/i3status_config -i $linux_setup/py3status_modules/
 
-
         position top
-        tray_output VGA-1
+        #tray_output VGA-1
         separator_symbol "|"
         colors {
                 background #0F0F0F
@@ -172,7 +171,7 @@ bar {
 ####################
 
 # Set background
-exec --no-startup-id /home/jw/.fehbg
+exec --no-startup-id ~/.fehbg
 
 # Lock screen cmd
 set $i3lock_cmd i3lock -c 333333
@@ -219,3 +218,7 @@ assign [class="Sublime_text"] 2: subl
 
 # Set arandr in floating always
 for_window [title="Screen Layout Editor"] floating enable
+
+# Set keyboard layout
+exec --no-startup-id setxkbmap gb,dk
+exec --no-startup-id setxkbmap -option 'grp:alt_shift_toggle'
