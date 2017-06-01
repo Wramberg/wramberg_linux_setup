@@ -6,6 +6,7 @@ volume_status {
 	cache_timeout = 1
 }
 
+order += "backlight"
 order += "jw_net"
 order += "jw_cpu"
 order += "jw_mem"

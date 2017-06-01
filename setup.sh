@@ -8,7 +8,7 @@ sudo apt update
 $inst i3
 
 # Install network applet
-$inst nm-applet
+#$inst nm-applet
 
 # Autolock and lock
 $inst xautolock
@@ -64,6 +64,9 @@ $inst arandr
 
 # Install tmux
 $inst tmux
+
+# Install rofi
+$inst rofi
 
 # Remove nautilus
 sudo apt remove -y nautilus
