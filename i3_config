@@ -175,7 +175,7 @@ exec --no-startup-id ~/.fehbg
 
 # Lock screen cmd
 set $i3lock_cmd i3lock -c 333333
-bindsym Mod1+l exec $i3lock_cmd
+bindsym $mod+Mod1+l exec $i3lock_cmd
 
 # Turn off the screen after X seconds of inactivity
 exec --no-startup-id xset dpms 0 0 600
@@ -230,5 +230,12 @@ bindsym mod4+d exec rofi -show run $rofi_opts $rofi_bg $rofi_fg
 bindsym mod4+Tab exec rofi -show window $rofi_opts $rofi_bg $rofi_fg
 
 # Set keyboard layout
-exec --no-startup-id setxkbmap gb,dk
-exec --no-startup-id setxkbmap -option 'grp:alt_shift_toggle'
+exec --no-startup-id "setxkbmap -layout gb,dk -option grp:alt_shift_toggle"
+
+# Some xrandr shortcuts using custom monitor script
+bindsym $mod+F9 exec ~/wramberg_linux_setup/monitor.sh docked
+bindsym $mod+F10 exec ~/wramberg_linux_setup/monitor.sh auto
+
+# Citrix stuff
+for_window [class="Wfica_Seamless"] floating enable
+
