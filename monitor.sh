@@ -8,3 +8,4 @@ case "$1" in
     *) xrandr --auto
 esac
 
+~/.fehbg

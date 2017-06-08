@@ -238,4 +238,5 @@ bindsym $mod+F10 exec ~/wramberg_linux_setup/monitor.sh auto
 
 # Citrix stuff
 for_window [class="Wfica_Seamless"] floating enable
+for_window [class="Wfica_YesNoConfirm"] floating enable
 
