@@ -98,7 +98,7 @@ bindsym $mod+c focus child
 bindsym $mod+1 workspace 1: term
 bindsym $mod+2 workspace 2: subl
 bindsym $mod+3 workspace 3: www
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace 4: comm
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -170,6 +170,9 @@ bar {
 #   Jwram tweaks   #
 ####################
 
+# Disable mouse warping - its anoying
+mouse_warping none
+
 # Set background
 exec --no-startup-id ~/.fehbg
 
@@ -240,3 +243,8 @@ bindsym $mod+F10 exec ~/wramberg_linux_setup/monitor.sh auto
 for_window [class="Wfica_Seamless"] floating enable
 for_window [class="Wfica_YesNoConfirm"] floating enable
 
+# Start slack on workspace 4
+assign [class="Slack"] 4: comm
+
+# Set matplotlib plots in floating always
+for_window [class="Tk"] floating enable

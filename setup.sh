@@ -103,14 +103,14 @@ if [ $result -eq 1 ]; then
 fi
 
 # Customize notify a bit - https://askubuntu.com/questions/128474/how-to-customize-on-screen-notifications
-sudo add-apt-repository ppa:leolik/leolik
-sudo apt-get update
+# sudo add-apt-repository ppa:leolik/leolik
+# sudo apt-get update
 #sudo apt-get upgrade
-sudo apt-get install libnotify-bin
-pkill notify-osd
-sudo add-apt-repository ppa:nilarimogard/webupd8
-sudo apt-get update
-sudo apt-get install notifyosdconfig
+# sudo apt-get install libnotify-bin
+# pkill notify-osd
+# sudo add-apt-repository ppa:nilarimogard/webupd8
+# sudo apt-get update
+# sudo apt-get install notifyosdconfig
 
 
 echo "Done - remember:"
