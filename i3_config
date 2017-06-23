@@ -240,8 +240,12 @@ bindsym $mod+F9 exec ~/wramberg_linux_setup/monitor.sh docked
 bindsym $mod+F10 exec ~/wramberg_linux_setup/monitor.sh auto
 
 # Citrix stuff
+for_window [class="Wfica"] floating enable
 for_window [class="Wfica_Seamless"] floating enable
 for_window [class="Wfica_YesNoConfirm"] floating enable
+
+# Evolution
+for_window [class="Evolution" title="Compose Message"] floating enable
 
 # Start slack on workspace 4
 assign [class="Slack"] 4: comm
