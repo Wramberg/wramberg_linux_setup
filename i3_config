@@ -95,10 +95,10 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1: term
-bindsym $mod+2 workspace 2: subl
-bindsym $mod+3 workspace 3: www
-bindsym $mod+4 workspace 4: comm
+bindsym $mod+1 workspace 1: www
+bindsym $mod+2 workspace 2: comm
+bindsym $mod+3 workspace 3: subl
+bindsym $mod+4 workspace 4: term
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -107,10 +107,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: term
-bindsym $mod+Shift+2 move container to workspace 2: subl
-bindsym $mod+Shift+3 move container to workspace 3: www
-bindsym $mod+Shift+4 move container to workspace 4: comm
+bindsym $mod+Shift+3 move container to workspace 1: www
+bindsym $mod+Shift+4 move container to workspace 2: comm
+bindsym $mod+Shift+2 move container to workspace 3: subl
+bindsym $mod+Shift+1 move container to workspace 4: term
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -163,6 +163,8 @@ bar {
         separator_symbol "|"
         colors {
                 background #0F0F0F
+#                focused_workspace #b30000 #800000 #ffffff
+#                urgent_workspace #ff3300 #ff3300 #ffffff
         }
 }
 
@@ -199,7 +201,7 @@ bindsym $mod+Shift+s move scratchpad
 bindsym grave scratchpad show
 
 # Window settings
-new_window pixel 2
+new_window pixel 1
 focus_follows_mouse no
 
 # Some custom keybindings
@@ -214,10 +216,10 @@ for_window [title="scratchpad_term"] resize grow right 230px; resize grow left 2
 for_window [title="scratchpad_term"] move scratchpad
 
 # Move chrome to www workspace always
-assign [class="Google-chrome"] 3: www
+assign [class="Google-chrome"] 1: www
 
 # Move sublime text to subl workspace always
-assign [class="Sublime_text"] 2: subl
+assign [class="Sublime_text"] 3: subl
 
 # Set arandr in floating always
 for_window [title="Screen Layout Editor"] floating enable
@@ -248,13 +250,10 @@ for_window [class="Wfica_YesNoConfirm"] floating enable
 for_window [class="Evolution" title="Compose Message"] floating enable
 
 # Start slack on workspace 4
-assign [class="Slack"] 4: comm
+assign [class="Slack"] 2: comm
 
 # Set matplotlib plots in floating always
 for_window [class="Tk"] floating enable
 
 # class                 border  backgr. text    indicator
-# client.focused          #900000 #900000 #ffffff #2e9ef4
-# client.focused_inactive #333333 #5f676a #ffffff #484e50
-# client.unfocused        #333333 #222222 #888888 #292d2e
-# client.urgent           #2f343a #900000 #ffffff #900000
+# client.focused          #2f343a #800000 #ffffff #800000
