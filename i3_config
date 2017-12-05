@@ -107,10 +107,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+3 move container to workspace 1: www
-bindsym $mod+Shift+4 move container to workspace 2: comm
-bindsym $mod+Shift+2 move container to workspace 3: subl
-bindsym $mod+Shift+1 move container to workspace 4: term
+bindsym $mod+Shift+1 move container to workspace 1: www
+bindsym $mod+Shift+2 move container to workspace 2: comm
+bindsym $mod+Shift+3 move container to workspace 3: subl
+bindsym $mod+Shift+4 move container to workspace 4: term
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
