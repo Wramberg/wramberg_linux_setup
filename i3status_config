@@ -17,7 +17,7 @@ order += "jw_mem"
 order += "jw_disk"
 order += "date"
 order += "clock"
-order += "battery_level"
+#order += "battery_level"
 
 #order += "battery_level"
 #order += "jw_swap"

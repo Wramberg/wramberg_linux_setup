@@ -18,7 +18,7 @@ def format_number(number, width):
 
 
 def get_date():
-    return (WHITE, time.strftime("%a %b %d (W%W)"))
+    return (WHITE, time.strftime("%a %b %d (W%V)"))
 
 
 def get_eth(): 

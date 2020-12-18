@@ -68,7 +68,8 @@ $inst tmux
 # Install rofi
 $inst rofi
 
-# Remove nautilus
+# Remove nautilus - install thunar as backup filemanager
+$inst thunar
 sudo apt remove -y nautilus
 
 # Remove dunst
@@ -114,7 +115,6 @@ fi
 
 
 echo "Done - remember:"
-# echo "ranger bashrc hack"
 echo "lxappearance - widget clearlook"
 echo "lxappearance - icons"
 echo "volume controls keybindings in tray"
