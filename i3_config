@@ -95,10 +95,10 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1: www
-bindsym $mod+2 workspace 2: comm
-bindsym $mod+3 workspace 3: subl
-bindsym $mod+4 workspace 4: term
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -107,10 +107,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: www
-bindsym $mod+Shift+2 move container to workspace 2: comm
-bindsym $mod+Shift+3 move container to workspace 3: subl
-bindsym $mod+Shift+4 move container to workspace 4: term
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -155,18 +155,18 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 set $linux_setup /home/jw/wramberg_linux_setup
 
-bar {
-        status_command py3status -c $linux_setup/i3status_config -i $linux_setup/py3status_modules/
+#bar {
+#        status_command py3status -c $linux_setup/i3status_config -i $linux_setup/py3status_modules/
 
-        position top
+#        position top
         #tray_output VGA-1
-        separator_symbol "|"
-        colors {
-                background #0F0F0F
+#        separator_symbol "|"
+#        colors {
+#                background #0F0F0F
 #                focused_workspace #b30000 #800000 #ffffff
 #                urgent_workspace #ff3300 #ff3300 #ffffff
-        }
-}
+#        }
+#}
 
 ####################
 #   Jwram tweaks   #
@@ -179,22 +179,24 @@ mouse_warping none
 exec --no-startup-id ~/.fehbg
 
 # Lock screen cmd
-set $i3lock_cmd i3lock -c 333333
-bindsym $mod+Mod1+l exec $i3lock_cmd
+#set $i3lock_cmd i3lock -c 333333
+#bindsym $mod+Mod1+l exec $i3lock_cmd
 
 # Turn off the screen after X seconds of inactivity
 exec --no-startup-id xset dpms 0 0 600
 
 # Lock the PC after X minutes of inactivity
-exec --no-startup-id xautolock -time 10 -locker 'i3lock -c 333333'
+#exec --no-startup-id xautolock -time 10 -locker 'i3lock -c 333333'
 
 # Start various tools
 exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
-exec --no-startup-id udiskie -s -N
+#exec --no-startup-id volumeicon
+#exec --no-startup-id udiskie -s -N
+exec --no-startup-id compton
+exec --no-startup-id polybar -r base
 
 # Start terminal intended for scratchpad
-exec --no-startup-id mate-terminal --title="scratchpad_term"
+#exec --no-startup-id mate-terminal --title="scratchpad_term"
 
 # Scratchpad stuff
 bindsym $mod+Shift+s move scratchpad
@@ -210,16 +212,16 @@ bindsym $mod+F1 move workspace to output left
 bindsym $mod+F2 move workspace to output right
 
 # Move scratchpad terminal to scratchpad automatically
-for_window [title="scratchpad_term"] move scratchpad
-for_window [title="scratchpad_term"] scratchpad show
-for_window [title="scratchpad_term"] resize grow right 230px; resize grow left 235 px
-for_window [title="scratchpad_term"] move scratchpad
+#for_window [title="scratchpad_term"] move scratchpad
+#for_window [title="scratchpad_term"] scratchpad show
+#for_window [title="scratchpad_term"] resize grow right 230px; resize grow left 235 px
+#for_window [title="scratchpad_term"] move scratchpad
 
 # Move chrome to www workspace always
-assign [class="Google-chrome"] 1: www
+#assign [class="Google-chrome"] 1: www
 
 # Move sublime text to subl workspace always
-assign [class="Sublime_text"] 3: subl
+#assign [class="Sublime_text"] 3: subl
 
 # Set arandr in floating always
 for_window [title="Screen Layout Editor"] floating enable
@@ -228,18 +230,19 @@ for_window [title="Screen Layout Editor"] floating enable
 #set $rofi_keys -key-run mod4+d -key-window mod4+Tab
 #exec --no-startup-id rofi $rofi_keys $rofi_opts $rofi_bg $rofi_fg
 
-set $rofi_opts -hide-scrollbar -separator-style none -font "mono 10"
-set $rofi_bg -bg "#22252b" -bg-active "#22252b" -bc "#4c7899" -hlbg "#000000" -hlbg-active "#000000"
-set $rofi_fg -fg "#FFFFFF"    -hlfg "#FFFFFF"    -fg-active "#4c7899" -hlfg-active "#4c7899"
-bindsym mod4+d exec rofi -show run $rofi_opts $rofi_bg $rofi_fg
+#set $rofi_opts -hide-scrollbar -separator-style none -font "mono 10"
+#set $rofi_bg -bg "#22252b" -bg-active "#22252b" -bc "#4c7899" -hlbg "#000000" -hlbg-active "#000000"
+#set $rofi_fg -fg "#FFFFFF"    -hlfg "#FFFFFF"    -fg-active "#4c7899" -hlfg-active "#4c7899"
+#bindsym mod4+d exec rofi -show run $rofi_opts $rof
+bindsym $mod+d exec rofi -show run -config ~/.config/rofi/config
 bindsym mod4+Tab exec rofi -show window $rofi_opts $rofi_bg $rofi_fg
 
 # Set keyboard layout
 exec --no-startup-id "setxkbmap -layout gb,dk -option grp:alt_shift_toggle"
 
 # Some xrandr shortcuts using custom monitor script
-bindsym $mod+F9 exec ~/wramberg_linux_setup/monitor.sh docked
-bindsym $mod+F10 exec ~/wramberg_linux_setup/monitor.sh auto
+#bindsym $mod+F9 exec ~/wramberg_linux_setup/monitor.sh docked
+#bindsym $mod+F10 exec ~/wramberg_linux_setup/monitor.sh auto
 
 # Citrix stuff
 for_window [class="Wfica"] floating enable
@@ -250,10 +253,15 @@ for_window [class="Wfica_YesNoConfirm"] floating enable
 for_window [class="Evolution" title="Compose Message"] floating enable
 
 # Start slack on workspace 4
-assign [class="Slack"] 2: comm
+#assign [class="Slack"] 2: comm
 
 # Set matplotlib plots in floating always
 for_window [class="Tk"] floating enable
 
 # class                 border  backgr. text    indicator
 # client.focused          #2f343a #800000 #ffffff #800000
+
+# Gaps config
+for_window [class=".*"] border pixel 0
+gaps inner 15
+gaps outer 0
