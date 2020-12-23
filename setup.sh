@@ -3,7 +3,11 @@
 inst="sudo apt install -y"
 pip="sudo pip install"
 
+sudo add-apt-repository ppa:kgilmer/speed-ricer
 sudo apt update
+
+# Random deps
+$inst gcc clang make
 
 # Install i3 gaps deps and i3 gaps itself
 $inst libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
@@ -56,7 +60,7 @@ $pip --upgrade pip3
 
 # Wallpaper
 $inst feh
-feh --bg-fill wallpapers/1449203821767.jpg
+feh --bg-fill $HOME/wramberg_linux_setup/wallpapers/1449203821767.jpg
 
 # Install mate terminal
 $inst mate-terminal
@@ -139,7 +143,11 @@ mkdir -p $HOME/.icons/Humanity/devices/16/
 mkdir -p $HOME/.icons/Humanity/status/16/
 ln -f -s /usr/share/icons/ubuntu-mono-dark/status/24/nm-device-wired.svg $HOME/.icons/Humanity/devices/16/nm-device-wired.svg
 ln -f -s /usr/share/icons/ubuntu-mono-dark/status/24/nm-no-connection.svg $HOME/.icons/Humanity/status/16/nm-no-connection.svg
-
+ln -f -s /usr/share/icons/ubuntu-mono-dark/status/24/nm-signal-00.svg $HOME/.icons/Humanity/status/16/nm-signal-00.svg
+ln -f -s /usr/share/icons/ubuntu-mono-dark/status/24/nm-signal-25.svg $HOME/.icons/Humanity/status/16/nm-signal-25.svg
+ln -f -s /usr/share/icons/ubuntu-mono-dark/status/24/nm-signal-50.svg $HOME/.icons/Humanity/status/16/nm-signal-50.svg
+ln -f -s /usr/share/icons/ubuntu-mono-dark/status/24/nm-signal-75.svg $HOME/.icons/Humanity/status/16/nm-signal-75.svg
+ln -f -s /usr/share/icons/ubuntu-mono-dark/status/24/nm-signal-100.svg $HOME/.icons/Humanity/status/16/nm-signal-100.svg
 
 echo "Done - remember:"
 echo "lxappearance - widget clearlook"
