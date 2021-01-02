@@ -74,7 +74,7 @@
 	modules-right = volume padding filesystem ram cpu padding  time date
 ;battery paddinglite previous playpause next music
 	modules-center  =
-	modules-left   = padding rofi-usb-mount padding workspaces
+	modules-left   = padding custombacklight rofi-usb-mount padding workspaces
 
 	fixed-center = true
 
@@ -412,25 +412,6 @@
 	label-empty-background    = ${colors.obibg}
 	label-empty-foreground    = ${colors.obifg}
 
-[module/backlight]
-	type = internal/backlight
-
-	output = LVDS-1
-
-	card          = acpi_video0
-	enable-scroll = false
-
-	format        = <label>
-	format-prefix = 
-
-	format-prefix-padding    = 1
-	format-prefix-background = ${colors.cpu_p_bg}
-	format-prefix-foreground = ${colors.modules_prefix_fg}
-
-	label            = %percentage%%
-	label-background = ${colors.modules_bg}
-	label-foreground = ${colors.modules_fg}
-	label-padding    = 1
 
 [module/rofi-usb-mount]
 	type = custom/script
@@ -444,10 +425,16 @@
 	label-padding = 1
 
 
-[module/network-networkmanager]
+[module/custombacklight]
 	type = custom/script
-	exec = ~/polybar-scripts/network-networkmanager.sh
-	tail = true
-        label-background = #2B303B
-        label-foreground = #EFF1F5
-	label-padding = 0
+	exec = ~/polybar-scripts/polybar_backlight_ctrl.py get
+	interval = 0.5
+        label-background = #8FA1B3
+        label-foreground = #2B303B
+	label-padding = 1
+        format        = "<label>"
+	format-prefix = "    ☼"
+	format-background = #8FA1B3
+	format-foreground = #2B303B
+	click-left = ~/polybar-scripts/polybar_backlight_ctrl.py inc 10
+        click-right = ~/polybar-scripts/polybar_backlight_ctrl.py dec 10

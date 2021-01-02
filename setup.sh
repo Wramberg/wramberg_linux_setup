@@ -149,6 +149,16 @@ ln -f -s /usr/share/icons/ubuntu-mono-dark/status/24/nm-signal-50.svg $HOME/.ico
 ln -f -s /usr/share/icons/ubuntu-mono-dark/status/24/nm-signal-75.svg $HOME/.icons/Humanity/status/16/nm-signal-75.svg
 ln -f -s /usr/share/icons/ubuntu-mono-dark/status/24/nm-signal-100.svg $HOME/.icons/Humanity/status/16/nm-signal-100.svg
 
+# Laptop backlight control
+cd /tmp/ && \
+	git clone https://github.com/haikarainen/light.git && \
+	cd light/ && \
+	./autogen.sh && \
+	./configure && \
+	make && \
+	sudo make install
+ln -s $HOME/wramberg_linux_setup/polybar_backlight_ctrl.py $HOME/polybar-scripts/polybar_backlight_ctrl.py
+
 echo "Done - remember:"
 echo "lxappearance - widget clearlook"
 echo "lxappearance - icons"
