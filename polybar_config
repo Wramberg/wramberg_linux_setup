@@ -1,10 +1,4 @@
-; vim:ft=cfg
-;--------------------------------------------
-; colors                                    ;
-;--------------------------------------------
-
 [colors]
-
 	bar_bg = #2B303B
 	bar_fg = #EFF1F5
 
@@ -64,17 +58,13 @@
 	module-margin-left = 0
 
 ;	font-N = <fontconfig pattern>;<vertical offset>
-;	font-0 = WunconSiji:size=4;2
 	font-0 = DejaVuSans:size=4;2
-	font-1 = MaterialIcons:size=5;4
-;	font-1 = lemon:pixelsize=10;1
-;	font-2 = scientifica:pixelsize=10;1
-;	font-3 = Kochi Gothic:size=4;1
+	font-1 = FontAwesome:size=5;3
+	font-2 = MaterialIcons:size=5;3
 
 	modules-right = volume padding filesystem ram cpu padding  time date
-;battery paddinglite previous playpause next music
-	modules-center  =
-	modules-left   = padding custombacklight rofi-usb-mount padding workspaces
+	modules-center  = 
+	modules-left   = padding custombacklight custompower rofi-usb-mount padding workspaces
 
 	fixed-center = true
 
@@ -82,8 +72,6 @@
 	tray-padding = 5
 	tray-background = #2B303B
 	tray-offset-x = 15
-
-;	wm-restack = i3
 	override-redirect = false
 
 ;--------------------------------------------
@@ -91,8 +79,8 @@
 ;--------------------------------------------
 [module/volume]
 	type = internal/alsa
-	label-muted = " 000%  "
-	label-volume = " %percentage:03%%  "
+	label-muted = ""
+	label-volume = " %percentage:3%% "
 	label-volume-background = #2B303B
 	label-muted-background = #2B303B
 	click-right = echo right %counter%
@@ -160,74 +148,6 @@
 	label-padding = 1
 
 	click-left = mpc toggle
-
-[module/next]
-	type = custom/text
-
-	content = " "
-
-	content-background = ${xrdb:color2}
-	content-foreground = ${xrdb:color0}
-	content-padding = 1
-
-	click-left = mpc next
-
-[module/music]
-	type = internal/mpd
-
-	host = 127.0.0.1
-	port = 6600
-
-	interval = 2
-
-	format-online = <label-song>
-
-	label-song         = "%artist% - %title% "
-	label-song-padding = 3
-	label-song-background = ${xrdb:color0}
-	label-song-foreground = ${xrdb:color7}
-
-	format-online-prefix-padding = 1
-
-[module/battery]
-	type          = internal/battery
-	full-at       = 98
-	battery       = BAT0
-	adapter       = AC0
-	poll-interval = 5
-
-	format-charging = <label-charging>
-
-	format-charging-prefix = "   "
-	format-charging-foreground = ${xrdb:color4}
-	format-charging-background = ${xrdb:color0}
-
-	label-charging            = "%percentage%%   "
-	label-charging-background = ${xrdb:color0}
-	label-charging-foreground = ${xrdb:color7}
-	label-charging-padding    = 1
-
-	format-discharging = <label-discharging>
-
-	format-discharging-prefix = "   "
-	format-discharging-prefix-foreground = ${xrdb:color4}
-	format-discharging-prefix-background = ${xrdb:color0}
-
-	label-discharging            = "%percentage%%   "
-	label-discharging-background = ${xrdb:color0}
-	label-discharging-foreground = ${xrdb:color7}
-	label-discharging-padding    = 1
-
-	format-full = <label-full>
-
-	format-full-prefix = "   "
-	format-full-prefix-foreground = ${xrdb:color4}
-	format-full-prefix-background = ${xrdb:color0}
-
-	label-full            = "%percentage%%   "
-	label-full-background = ${xrdb:color0}
-	label-full-foreground = ${xrdb:color7}
-	label-full-padding    = 1
 
 [module/volumeee]
 	type          = internal/volume
@@ -297,58 +217,6 @@
         label-unmounted = %mountpoint% not mounted
         label-unmounted-foreground = #2B303B
 
-[module/essid]
-	inherit = module/network
-
-	format-connected = <label-connected>
-
-	format-connected-prefix              = ""
-	format-connected-prefix-padding      = 1
-	format-connected-prefix-padding-left = 1
-	format-connected-prefix-background   = #8FA1B3
-	format-connected-prefix-foreground   = #2B303B
-
-	label-connected               = "%ssid%"
-	label-connected-background    = #8FA1B3
-	label-connected-foreground    = #2B303B
-	label-connected-padding       = 1
-	label-connected-padding-right = 1
-
-	ramp-signal-background    = #8FA1B3
-	ramp-signal-foreground    = #2B303B
-	ramp-connected-foreground = #2B303B
-	ramp-signal-padding       = 1
-
-	format-disconnected = <label-disconnected>
-
-	format-disconnected-prefix              = ""
-	format-disconnected-prefix-padding      = 1
-	format-disconnected-prefix-padding-left = 1
-	format-disconnected-prefix-background   = #8FA1B3
-	format-disconnected-prefix-foreground   = #2B303B
-
-	label-disconnected               = ""
-	label-disconnected-background    = #8FA1B3
-	label-disconnected-foreground    = #2B303B
-	label-disconnected-padding       = 1
-	label-disconnected-padding-right = 1
-
-
-[module/down]
-	inherit = module/network
-
-	format-connected = <label-connected>
-
-	format-connected-prefix            = 
-	format-connected-prefix-background = ${colors.down_p_bg}
-	format-connected-prefix-foreground = ${colors.modules_prefix_fg}
-	format-connected-prefix-padding    = 1
-
-	label-connected               = %{T2}%downspeed:7%%{T-}
-	label-connected-background    = ${colors.modules_bg}
-	label-connected-foreground    = ${colors.modules_fg}
-	label-connected-padding-right = 1
-
 [module/padding]
 	type               = custom/text
 	content            = "    "
@@ -388,31 +256,6 @@
 	label-urgent-padding    = 3
 
 
-[module/openbox]
-	type                      = internal/xworkspaces
-	pin-workspaces            = true
-	enable-click              = false
-	enable-scroll             = false
-	format                    = <label-state>
-	label-monitor             = %name%
-	label-active              = %icon%%name%
-	label-active-foreground   = ${colors.obfg}
-	label-active-background   = ${colors.obbg}
-	label-active-underline    = #fba922
-	label-active-padding      = 1
-	label-occupied            = %name%
-	label-occupied-background = ${colors.obbg}
-	label-occupied-padding    = 1
-	label-urgent              = %index%
-	label-urgent-foreground   = #000000
-	label-urgent-background   = #bd2c40
-	label-urgent-underline    = #9b0a20
-	label-empty               = %name%
-	label-empty-padding       = 1
-	label-empty-background    = ${colors.obibg}
-	label-empty-foreground    = ${colors.obifg}
-
-
 [module/rofi-usb-mount]
 	type = custom/script
 	exec = ~/polybar-scripts/rofi-usb-mount.sh --check
@@ -433,8 +276,21 @@
         label-foreground = #2B303B
 	label-padding = 1
         format        = "<label>"
-	format-prefix = "    ☼"
+	format-prefix = "    "
 	format-background = #8FA1B3
 	format-foreground = #2B303B
 	click-left = ~/polybar-scripts/polybar_backlight_ctrl.py inc 10
         click-right = ~/polybar-scripts/polybar_backlight_ctrl.py dec 10
+
+
+[module/custompower]
+        type = custom/script
+        exec = ~/polybar-scripts/polybar_power_status.py
+        interval = 5.0
+        label-background = #8FA1B3
+        label-foreground = #2B303B
+        label-padding = 1
+        format        = "<label>"
+        format-prefix = "    "
+        format-background = #8FA1B3
+        format-foreground = #2B303B
