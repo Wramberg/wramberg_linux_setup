@@ -164,7 +164,6 @@ cd /tmp/ && \
 ln -s $HOME/wramberg_linux_setup/polybar_backlight_ctrl.py $HOME/polybar-scripts/polybar_backlight_ctrl.py
 
 # Battery status
-./polybar_power_status.py
 ln -s $HOME/wramberg_linux_setup/polybar_power_status.py $HOME/polybar-scripts/polybar_power_status.py
 
 echo "Done - remember:"
