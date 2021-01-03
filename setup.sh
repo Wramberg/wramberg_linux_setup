@@ -128,7 +128,10 @@ fi
 # Install fonts
 $inst fonts-material-design-icons-iconfont
 $inst fonts-font-awesome
-#cd /tmp && git clone https://github.com/stark/siji && cd siji && ./install.sh -d $HOME/.fonts
+
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/3270.zip
+unzip 3270.zip -d ~/.fonts
+fc-cache -fv
 
 # Add usb dev script to polybar
 mkdir $HOME/polybar-scripts/

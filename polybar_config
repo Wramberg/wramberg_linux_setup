@@ -2,32 +2,6 @@
 	bar_bg = #2B303B
 	bar_fg = #EFF1F5
 
-	border_col = ${xrdb:color0}
-
-	modules_bg = ${xrdb:color7}
-	modules_fg = ${xrdb:color0}
-
-	mod_bg = ${xrdb:color7}
-
-	modules_prefix_bg = ${xrdb:color7}
-	modules_prefix_fg = ${xrdb:color0}
-
-	urgent_bg  = ${xrdb:color1}
-	focused_bg = ${xrdb:color10}
-
-	essid_p_bg   = ${xrdb:color6}
-	down_p_bg    = #5e606c
-	cpu_p_bg     = ${xrdb:color5}
-	ram_p_bg     = ${xrdb:color11}
-	vol_p_bg     = #637b81
-	bright_p_bg  = #c29f6f
-	battery_p_bg = ${xrdb:color9}
-	time_p_bg    = ${xrdb:color10}
-
-;--------------------------------------------
-; bars                                      ;
-;--------------------------------------------
-
 [bar/base]
 	dpi      = 192
 	width    = 100%
@@ -53,18 +27,21 @@
 	border-right-colo = #2B303B
 
 	spacing            = 0
-	padding-left       = 4
-	padding-right      = 4
+	padding-left       = 2
+	padding-right      = 2
 	module-margin-left = 0
 
 ;	font-N = <fontconfig pattern>;<vertical offset>
-	font-0 = DejaVuSans:size=4;2
-	font-1 = FontAwesome:size=5;3
-	font-2 = MaterialIcons:size=5;3
+	font-0 = UbuntuMono:size=5;2
+	font-1 = 3270Medium Nerd Font Mono:style=Medium:size=8;3
+	font-2 = 3270Medium Nerd Font Mono:style=Medium:size=10;4
+	font-3 = 3270Medium Nerd Font Mono:style=Medium:size=6;3
+	;font-2 = FontAwesome:size=5;3
+	;font-3 = MaterialIcons:size=5;3
 
-	modules-right = volume padding filesystem ram cpu padding  time date
+	modules-right = volume padding filesystem ram cpu padding time date
 	modules-center  = 
-	modules-left   = padding custombacklight custompower rofi-usb-mount padding workspaces
+	modules-left = padding custombacklight custompower rofi-usb-mount padding workspaces
 
 	fixed-center = true
 
@@ -79,30 +56,19 @@
 ;--------------------------------------------
 [module/volume]
 	type = internal/alsa
-	label-muted = ""
-	label-volume = " %percentage:3%% "
+	label-muted = "婢"
+	label-volume = " %percentage:3%%"
 	label-volume-background = #2B303B
 	label-muted-background = #2B303B
 	click-right = echo right %counter%
-	label-muted-padding = 3
-	label-volume-padding = 3
+	label-muted-padding = 2
+	label-volume-padding = 2
 
-[module/network]
-	type          = internal/network
-	interface     = enp0s3
-	ping-interval = 3
-
-[module/xwindow]
-	y-offset      = 10
-	type          = internal/xwindow
-	format        = <label>
-	label         = %title:0:50:%
-	label-padding = 1
 
 [module/time]
 	type     = internal/date
 	interval = 1.0
-        time     = "%H:%M:%S"
+        time     = "   %H:%M:%S "
 	label    = "%time%"
 
 	format         = <label>
@@ -110,12 +76,13 @@
 
 	label-background = #2B303B
 	label-foreground = #EFF1F5
-	label-padding    = 3
+	label-padding    = 1
+
 
 [module/date]
         type     = internal/date
         interval = 10.0
-        time     = "%d %b %Y (W%V)"
+        time     = "  %d %b %Y (W%V)  "
         label    = "%time%"
 
         format         = <label>
@@ -123,65 +90,19 @@
 
         label-background = #2B303B
         label-foreground = #EFF1F5
-        label-padding    = 3
+        label-padding    = 1
 
-[module/previous]
-	type = custom/text
-
-	content = " "
-	content-background = ${xrdb:color2}
-	content-foreground = ${xrdb:color0}
-	content-padding = 1
-
-	click-left = mpc prev
-
-[module/playpause]
-	type = custom/script
-
-	exec = sh ~/.config/polybar/playpause.sh
-
-	interval= 1
-
-	label = %output%
-	label-background = ${xrdb:color2}
-	label-foreground = ${xrdb:color0}
-	label-padding = 1
-
-	click-left = mpc toggle
-
-[module/volumeee]
-	type          = internal/volume
-	format-volume = <label-volume>
-
-	mapped = true
-
-	label-volume            = " %percentage%"
-	label-volume-background = ${xrdb:color0}
-	label-volume-foreground = ${xrdb:color3}
-	label-volume-padding    = 1
-
-	format-muted = <label-muted>
-
-	label-muted            = " 0"
-	label-muted-background = ${xrdb:color0}
-	label-muted-foreground = ${xrdb:color3}
-	label-muted-padding    = 3
-
-	format-volume-padding = 0
-	format-muted-padding  = 0
-
-	ramp-headphones-0 = 
 
 [module/cpu]
 	type             = internal/cpu
 	interval         = 0.5
 	format           = <label>
-	label            = "%percentage:03%%  "
+	label            = "%percentage:3%%  "
 	label-background = #8FA1B3
 	label-foreground = #2B303B
 	label-padding    = 1
 
-	format-prefix = "  "
+	format-prefix = " %{T3}"
 
 	format-prefix-padding    = 0
 	format-prefix-background = #8FA1B3
@@ -192,12 +113,12 @@
 	interval = 3
 
 	format           = <label>
-	label            = "%percentage_used:03%%  "
+	label            = "%percentage_used:3%%  "
 	label-background = #8FA1B3
 	label-foreground = #2B303B
 	label-padding    = 1
 
-	format-prefix = "  "
+	format-prefix = " %{T3}"
 
 	format-prefix-padding    = 0
 	format-prefix-background = #8FA1B3
@@ -209,7 +130,7 @@
 
         mount-0 = /
 
-        label-mounted = "   %percentage_used:02%%  "
+        label-mounted = "   %percentage_used:2%%  "
 	label-mounted-background = #8FA1B3
 	label-mounted-foreground = #2B303B
 	label-mounted-padding    = 1
@@ -219,7 +140,7 @@
 
 [module/padding]
 	type               = custom/text
-	content            = "    "
+	content            = "   "
 	content-foreground = 0x000000
 	content-background = 0x00000000
 
@@ -233,27 +154,27 @@
 
 	label-mode-background = #2B303B
 	label-mode-foreground = #EFF1F5
-	label-mode-padding    = 3
+	label-mode-padding    = 2
 
 	label-focused            = %name%
 	label-focused-background = #8FA1B3
 	label-focused-foreground = #2B303B
-	label-focused-padding    = 3
+	label-focused-padding    = 2
 
 	label-unfocused            = %name%
 	label-unfocused-background = #2B303B
 	label-unfocused-foreground = #EFF1F5
-	label-unfocused-padding    = 3
+	label-unfocused-padding    = 2
 
 	label-visible            = %name%
 	label-visible-background = #2B303B
 	label-visible-foreground = #EFF1F5
-	label-visible-padding    = 3
+	label-visible-padding    = 2
 
 	label-urgent            = %name%
 	label-urgent-background = #2B303B
 	label-urgent-foreground = #BF616A
-	label-urgent-padding    = 3
+	label-urgent-padding    = 2
 
 
 [module/rofi-usb-mount]
@@ -276,7 +197,7 @@
         label-foreground = #2B303B
 	label-padding = 1
         format        = "<label>"
-	format-prefix = "    "
+	format-prefix = "   %{T3}"
 	format-background = #8FA1B3
 	format-foreground = #2B303B
 	click-left = ~/polybar-scripts/polybar_backlight_ctrl.py inc 10
@@ -291,6 +212,6 @@
         label-foreground = #2B303B
         label-padding = 1
         format        = "<label>"
-        format-prefix = "    "
+        format-prefix = "  %{T4}"
         format-background = #8FA1B3
         format-foreground = #2B303B
