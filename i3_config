@@ -193,7 +193,7 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id volumeicon
 #exec --no-startup-id udiskie -s -N
 exec --no-startup-id compton
-exec --no-startup-id polybar -r base
+exec --no-startup-id polybar -r base --config=/home/jw/wramberg_linux_setup/polybar_config
 
 # Start terminal intended for scratchpad
 #exec --no-startup-id mate-terminal --title="scratchpad_term"
