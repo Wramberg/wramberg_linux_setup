@@ -41,7 +41,7 @@
 
 	modules-right = volume padding filesystem ram cpu padding time date
 	modules-center  = 
-	modules-left = padding custombacklight custompower rofi-usb-mount padding workspaces
+	modules-left = padding rofi-usb-mount padding workspaces
 
 	fixed-center = true
 
